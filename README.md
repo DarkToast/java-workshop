@@ -62,3 +62,6 @@ translated to the machine specific binary code.
 |   .java   |  compile   |  .class  |   interpret   |   (binary)   |
 +-----------+            +----------+               +--------------+
 ````
+
+## Get into the code
+Now it's time to check out this project and dive a little bit into the code.
