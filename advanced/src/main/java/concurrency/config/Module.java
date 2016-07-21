@@ -1,7 +1,6 @@
 package concurrency.config;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Provider;
 import com.google.inject.multibindings.Multibinder;
 import com.google.inject.name.Names;
 import concurrency.health.CreditServiceHealthCheck;
