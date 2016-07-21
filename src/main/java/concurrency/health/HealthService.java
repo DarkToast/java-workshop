@@ -1,27 +1,38 @@
 package concurrency.health;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 
 import javax.inject.Inject;
-import javax.inject.Named;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 
 public class HealthService {
-    @Inject
-    @Named("creditService")
-    private HealthCheck creditServiceHealtCheck;
+    private final Set<HealthCheck> checks;
 
     @Inject
-    @Named("database")
-    private HealthCheck databaseHealthCheck;
-
+    public HealthService(Set<HealthCheck> checks) {
+        this.checks = ImmutableSet.copyOf(checks);
+    }
 
     public CompletableFuture<List<CheckResult>> getServices() {
-        CompletableFuture<CheckResult> creditF = creditServiceHealtCheck.check();
-        CompletableFuture<CheckResult> databaseF = databaseHealthCheck.check();
+        List<CompletableFuture<CheckResult>> futureList = checks.stream().map(HealthCheck::check).collect(Collectors.toList());
+        return transformList(CompletableFuture.completedFuture(Lists.newArrayList()), futureList);
+    }
 
-        return creditF.thenCombineAsync(databaseF, (credit, database) -> Lists.newArrayList(credit, database));
+    private <T> CompletableFuture<List<T>> transformList(
+        CompletableFuture<List<T>> accumulator,
+        List<CompletableFuture<T>> elems
+    ) {
+        BiFunction<List<T>, T, List<T>> combinator = (list, elem) -> { list.add(elem); return list; };
+        if(elems.isEmpty()) {
+            return accumulator;
+        } else {
+            return transformList(accumulator.thenCombine(elems.get(0), combinator), elems.subList(1, elems.size()));
+        }
+
     }
 }
