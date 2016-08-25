@@ -1,7 +1,7 @@
 # Java workshop
 A simple workshop for non java developers to get an introduction
 
-## First steps in the java world
+## First steps in the java rover.world
 Java is a bytecode based language first developed by Sun Microsystems in 1995.
 Currently the java environment is driven by the Oracle corporation and a very big open source community. 
 Bytecode based means, that the program code is not compiled directly to a machine specific binary format 
