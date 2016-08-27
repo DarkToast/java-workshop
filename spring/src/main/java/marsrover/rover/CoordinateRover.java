@@ -4,7 +4,8 @@ abstract public class CoordinateRover implements Rover {
 
     private Direction direction = Direction.NORTH;
 
-    Direction getDirection() {
+    @Override
+    public Direction getDirection() {
         return direction;
     }
 

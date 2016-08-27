@@ -12,4 +12,6 @@ public interface Rover {
     Rover turnRight();
 
     Point getActualPosition();
+
+    Direction getDirection();
 }

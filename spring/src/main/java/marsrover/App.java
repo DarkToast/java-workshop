@@ -1,6 +1,6 @@
 package marsrover;
 
-import marsrover.world.Point;
+import marsrover.rover.Rover;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,13 +14,12 @@ public class App {
 
     public static void main(String[] args) {
         factories.forEach( (name, factory) -> {
-            Point position = factory.buildRover()
+            Rover rover = factory.buildRover()
                 .moveForward()
                 .turnLeft()
-                .moveForward()
-                .getActualPosition();
+                .moveForward();
 
-            System.out.println("'" + name + "': " + position);
+            System.out.println("'" + name + "' - Coord: " + rover.getActualPosition() + ", Direction: " + rover.getDirection());
         });
     }
 }
