@@ -13,18 +13,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ConfigurationInjection {
-
-    public static void main(String[] args) {
-        System.out.println(
-            new ConfigurationInjection().buildRover()
-                .moveForward()
-                .turnLeft()
-                .moveForward()
-                .getActualPosition().toString()
-        );
-    }
-
+public class ConfigClassInjection implements RoverFact {
+    @Override
     public Rover buildRover() {
         ApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(RoverConfig.class);
