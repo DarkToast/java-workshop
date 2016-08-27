@@ -1,6 +1,6 @@
 package marsrover.rover;
 
-abstract public class CoordinateRover implements Rover {
+abstract public class MovableRover implements Rover {
 
     private Direction direction = Direction.NORTH;
 
