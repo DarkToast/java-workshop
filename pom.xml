@@ -25,6 +25,7 @@
         <module>basics</module>
         <module>advanced</module>
         <module>spring</module>
+        <module>springboot</module>
     </modules>
 
 </project>
