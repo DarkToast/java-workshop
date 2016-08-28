@@ -11,6 +11,9 @@ public class Point {
 
     @Override
     public String toString() {
-        return "(" + x + ", " + y + ")";
+        final String longitude = x < 0 ? (x * (-1)) + "° W" : x + "° E";
+        final String latitude  = y < 0 ? (y * (-1)) + "° S" : y + "° N";
+
+        return "(" + longitude + ", " + latitude + ")";
     }
 }
