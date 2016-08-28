@@ -1,10 +1,10 @@
-package marsrover;
+package marsrover.config;
 
 import marsrover.rover.Rover;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class XmlInjection implements RoverFact {
+public class XmlConfiguration implements RoverConfig {
     @Override
     public Rover buildRover() {
         ApplicationContext applicationContext =

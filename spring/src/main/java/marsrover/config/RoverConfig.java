@@ -1,7 +1,7 @@
-package marsrover;
+package marsrover.config;
 
 import marsrover.rover.Rover;
 
-public interface RoverFact {
+public interface RoverConfig {
     public Rover buildRover();
 }

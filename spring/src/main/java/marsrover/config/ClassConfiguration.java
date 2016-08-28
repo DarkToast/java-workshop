@@ -1,4 +1,4 @@
-package marsrover;
+package marsrover.config;
 
 import marsrover.rover.Rover;
 import marsrover.rover.SlowRover;
@@ -7,24 +7,29 @@ import marsrover.world.GlobeWorld;
 import marsrover.world.World;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-public class ConfigClassInjection implements RoverFact {
+public class ClassConfiguration implements RoverConfig {
     @Override
     public Rover buildRover() {
-        ApplicationContext applicationContext =
-                new AnnotationConfigApplicationContext(RoverConfig.class);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+
+        applicationContext.register(RoverConfig.class);
+        applicationContext.scan("marsrover");
+        applicationContext.refresh();
 
         return applicationContext.getBean(Rover.class);
     }
 
     @Configuration
+    @PropertySource("classpath:/rover.properties")
     static class RoverConfig {
         @Bean(name = "flatWorld")
+
         World flatWorld() {
             return new FlatWorld();
         }
