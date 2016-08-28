@@ -22,7 +22,7 @@ public class ClassConfiguration implements RoverConfig {
         applicationContext.scan("marsrover");
         applicationContext.refresh();
 
-        return applicationContext.getBean(Rover.class);
+        return applicationContext.getBean("rover", Rover.class);
     }
 
     @Configuration
