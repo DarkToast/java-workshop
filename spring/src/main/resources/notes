@@ -1,0 +1,3 @@
+@PropertySource("classpath:/rover.properties")
+<context:component-scan base-package="marsrover" />
+applicationContext.scan("marsrover");

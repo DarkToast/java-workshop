@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 public class ClassConfiguration implements RoverConfig {
@@ -19,17 +18,14 @@ public class ClassConfiguration implements RoverConfig {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
 
         applicationContext.register(RoverConfig.class);
-        applicationContext.scan("marsrover");
         applicationContext.refresh();
 
         return applicationContext.getBean("rover", Rover.class);
     }
 
     @Configuration
-    @PropertySource("classpath:/rover.properties")
     static class RoverConfig {
         @Bean(name = "flatWorld")
-
         World flatWorld() {
             return new FlatWorld();
         }
