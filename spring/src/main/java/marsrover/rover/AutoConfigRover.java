@@ -20,7 +20,10 @@ public class AutoConfigRover extends MovableRover {
     private Point position;
 
     @Autowired
-    public AutoConfigRover(@Qualifier("globeWorld") final World world, @Value("${rover.gear}") final int gear) {
+    public AutoConfigRover(
+        @Qualifier("globeWorld") final World world,
+        @Value("${rover.gear}") final int gear
+    ) {
         this.world = world;
         this.gear = gear;
         this.position = world.land();
