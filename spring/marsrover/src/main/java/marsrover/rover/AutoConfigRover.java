@@ -7,13 +7,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.xml.ws.Provider;
-import java.util.function.BiConsumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 @Component
-public class AutoConfigRover extends MovableRover {
+public class AutoConfigRover extends TurnableRover {
 
     private World world;
     private int gear;

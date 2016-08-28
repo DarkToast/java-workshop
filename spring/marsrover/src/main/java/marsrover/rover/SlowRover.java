@@ -3,7 +3,7 @@ package marsrover.rover;
 import marsrover.world.Point;
 import marsrover.world.World;
 
-public class SlowRover extends MovableRover {
+public class SlowRover extends TurnableRover {
 
     private final World world;
     private Point position;
