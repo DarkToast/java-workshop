@@ -11,7 +11,7 @@
         an artifact id, which represents the build artifact (executable, library, web container, etc.)
         a version
     -->
-    <groupId>de.de.darktoast</groupId>
+    <groupId>de.darktoast</groupId>
     <artifactId>java-workshop</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -25,7 +25,6 @@
         <module>basics</module>
         <module>advanced</module>
         <module>spring</module>
-        <module>springboot</module>
     </modules>
 
 </project>

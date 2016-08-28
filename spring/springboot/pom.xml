@@ -10,8 +10,8 @@
         <version>1.4.0.RELEASE</version>
     </parent>
 
-    <groupId>de.de.darktoast</groupId>
-    <artifactId>springboot</artifactId>
+    <groupId>de.darktoast</groupId>
+    <artifactId>marsrover-boot</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -58,10 +58,31 @@
                     </includes>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>de.darktoast</groupId>
+            <artifactId>marsrover</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
