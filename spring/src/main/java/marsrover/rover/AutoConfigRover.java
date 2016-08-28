@@ -15,18 +15,20 @@ import java.util.function.Supplier;
 @Component
 public class AutoConfigRover extends MovableRover {
 
-    private final World world;
-    private final int gear;
+    private World world;
+    private int gear;
     private Point position;
 
     @Autowired
-    public AutoConfigRover(
-        @Qualifier("globeWorld") final World world,
-        @Value("${rover.gear}") final int gear
-    ) {
+    public AutoConfigRover(@Qualifier("globeWorld") final World world) {
         this.world = world;
-        this.gear = gear;
         this.position = world.land();
+    }
+
+    @Autowired
+    @Value("${rover.gear}")
+    public void setGear(int gear) {
+        this.gear = gear;
     }
 
     @Override
