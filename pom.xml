@@ -23,7 +23,7 @@
     -->
     <modules>
         <module>basics</module>
-        <module>advanced</module>
+        <!--<module>advanced</module>-->
         <module>spring</module>
     </modules>
 
