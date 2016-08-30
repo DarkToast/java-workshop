@@ -22,7 +22,7 @@
     </properties>
 
     <build>
-        <testSourceDirectory>src/test/groovy</testSourceDirectory>
+        <!-- <testSourceDirectory>src/test/groovy</testSourceDirectory> -->
 
         <plugins>
             <plugin>
@@ -78,14 +78,24 @@
 
     <dependencies>
         <dependency>
-            <groupId>de.darktoast</groupId>
-            <artifactId>marsrover</artifactId>
-            <version>1.0.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.192</version>
         </dependency>
 
         <!-- TESTING -->
