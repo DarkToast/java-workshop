@@ -5,10 +5,13 @@ import marsrover.world.World;
 
 public class SlowRover extends TurnableRover {
 
-    private final World world;
+    private World world;
     private Point position;
 
-    public SlowRover(World world) {
+    public SlowRover() {
+    }
+
+    public void setWorld(World world) {
         this.world = world;
         this.position = world.land();
     }

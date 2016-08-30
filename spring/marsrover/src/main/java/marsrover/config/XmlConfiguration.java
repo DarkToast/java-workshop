@@ -10,6 +10,6 @@ public class XmlConfiguration implements RoverConfig {
         ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("/context.xml");
 
-        return applicationContext.getBean(Rover.class);
+        return applicationContext.getBean("rover", Rover.class);
     }
 }

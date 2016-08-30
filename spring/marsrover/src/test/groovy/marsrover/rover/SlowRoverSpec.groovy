@@ -9,7 +9,11 @@ import static marsrover.rover.Direction.*
 class SlowRoverSpec extends Specification {
 
     @Subject
-    def rover = new SlowRover(new FlatWorld())
+    def rover = {
+        def rover = new SlowRover()
+        rover.setWorld(new FlatWorld())
+        return rover
+    }()
 
     def "A fast rover stands north after landing"() {
         expect: "The rovers direction is north"
